@@ -18,7 +18,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp"/>
-
     <EditText
         android:id="@+id/nama"
         android:layout_width="0dp"
@@ -29,6 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/nim"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
+
 
     <Button
         android:id="@+id/tombolSimpan"

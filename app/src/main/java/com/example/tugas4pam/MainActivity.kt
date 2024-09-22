@@ -24,31 +24,45 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        initializeViews()
+        setupRecyclerView()
+        setupSaveButton()
+    }
+
+    private fun initializeViews() {
         recyclerView = findViewById(R.id.recyclerView)
         nimEditText = findViewById(R.id.nim)
         namaEditText = findViewById(R.id.nama)
         saveButton = findViewById(R.id.tombolSimpan)
+    }
 
+    private fun setupRecyclerView() {
         adapter = ItemAdapter(itemList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+    }
 
+    private fun setupSaveButton() {
         saveButton.setOnClickListener {
             addItemToList()
         }
     }
 
     private fun addItemToList() {
-        val nim = nimEditText.text.toString()
-        val nama = namaEditText.text.toString()
+        val nim = nimEditText.text.toString().trim()
+        val nama = namaEditText.text.toString().trim()
 
         if (nim.isNotEmpty() && nama.isNotEmpty()) {
             val newItem = ItemModel(nim, nama)
-            itemList.add(newItem)
-            adapter.notifyItemInserted(itemList.size - 1)
-
-            nimEditText.text.clear()
-            namaEditText.text.clear()
+            itemList.add(0, newItem) // Menambahkan item baru ke posisi 0 (paling atas)
+            adapter.notifyItemInserted(0) // Memberitahu adapter bahwa item baru ditambahkan di posisi 0
+            recyclerView.scrollToPosition(0) // Menggulir RecyclerView ke posisi paling atas
+            clearInputFields()
         }
+    }
+
+    private fun clearInputFields() {
+        nimEditText.text.clear()
+        namaEditText.text.clear()
     }
 }
