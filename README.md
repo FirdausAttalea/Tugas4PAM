@@ -9,7 +9,7 @@ Pada tugas kali ini mahasiswa diberikan tugas Buat aplikasi menampilkan dan mena
 ## Contributing
 
 Pull requests are welcome. For major changes, please open an issue first
-to discuss what you would like to change.
+to discuss what you would like to change. Thankuu
 
 Please make sure to update tests as appropriate.
 
